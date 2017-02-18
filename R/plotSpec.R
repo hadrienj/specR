@@ -9,6 +9,7 @@
 
 plotSpec <- function(path=NA) {
   library(gsubfn)
+  library(ggplot2)
   spectrum <- read.pattern(path, pattern = "^\\s*\\d.*", sep='')
   spectrum$V1 <- unlist(lapply(spectrum$V1,
                                function(x) as.numeric(gsub(',', '\\.', x))))
