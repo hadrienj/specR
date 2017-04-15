@@ -7,10 +7,10 @@
 #' @examples
 #' plotSpec(data)
 
-plotSpec <- function(path=NA) {
+plotSpec <- function(path=NA, sep='') {
   library(gsubfn)
   library(ggplot2)
-  spectrum <- read.pattern(path, pattern = "^\\s*\\d.*", sep='')
+  spectrum <- read.pattern(path, pattern = "^\\s*\\d.*", sep=sep)
   spectrum$V1 <- unlist(lapply(spectrum$V1,
                                function(x) as.numeric(gsub(',', '\\.', x))))
   spectrum$V2 <- unlist(lapply(spectrum$V2,
